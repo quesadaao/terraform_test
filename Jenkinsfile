@@ -1,6 +1,11 @@
 pipeline {
   agent any
 
+  environment {
+    AWS_ACCESS_KEY_ID = credentials('aws-access-key-id')
+    AWS_SECRET_ACCESS_KEY = credentials('aws-secret-access-key')
+  }
+
   stages {
     stage('Checkout') {
       steps {
@@ -27,6 +32,13 @@ pipeline {
       steps {
         // Aplicar los cambios en la infraestructura de AWS
         sh 'terraform apply -input=false tfplan'
+      }
+    }
+
+    stage('Terraform Destroy') {
+      steps {
+        // Ejecutar el comando terraform destroy para eliminar los recursos
+        sh 'terraform destroy -auto-approve'
       }
     }
   }
