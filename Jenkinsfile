@@ -16,12 +16,12 @@ pipeline {
       }
     }
 
-    stage('Checkout') {
-      steps {
+    //stage('Checkout') {
+    //  steps {
         // Clonar el repositorio de código fuente que contiene el código de Terraform
-        git 'https://github.com/quesadaao/terraform_test.git'
-      }
-    }
+    //    git 'https://github.com/quesadaao/terraform_test.git'
+    //  }
+    //}
 
     stage('Terraform Init') {
       steps {
