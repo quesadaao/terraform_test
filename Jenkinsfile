@@ -26,7 +26,7 @@ pipeline {
     stage('Terraform Plan') {
       steps {
         // Ejecutar el comando terraform plan para ver los cambios propuestos
-        sh 'terraform plan -input=false -out=tfplan'
+        sh 'terraform plan -input=false -out=tfplan -var="AWS_ACCESS_KEY_ID=${env.AWS_ACCESS_KEY_ID}" -var="AWS_SECRET_ACCESS_KEY=${env.AWS_SECRET_ACCESS_KEY}"'
       }
     }
 
