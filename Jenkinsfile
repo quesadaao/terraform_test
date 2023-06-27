@@ -9,6 +9,13 @@ pipeline {
   }
 
   stages {
+    stage('Test version Terraform') {
+      steps {
+        // Inicializar Terraform y descargar los plugins requeridos
+        sh 'terraform version'
+      }
+    }
+
     stage('Checkout') {
       steps {
         // Clonar el repositorio de código fuente que contiene el código de Terraform
