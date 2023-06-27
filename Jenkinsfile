@@ -16,13 +16,6 @@ pipeline {
       }
     }
 
-    //stage('Checkout') {
-    //  steps {
-        // Clonar el repositorio de código fuente que contiene el código de Terraform
-    //    git 'https://github.com/quesadaao/terraform_test.git'
-    //  }
-    //}
-
     stage('Terraform Init') {
       steps {
         // Inicializar Terraform y descargar los plugins requeridos
